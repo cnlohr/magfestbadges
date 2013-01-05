@@ -1,12 +1,14 @@
-| .022u        C8        
-| .022u        C9        
-| .1u          C2        
-| 10u          C1        
-| 10u          C3        
-| 10u          C4        
-| 120          R3        
-| 12p          C6        
-| 12p          C7        
+(~$6 in parts)
+
+| .022u        C8       
+| .022u        C9       
+| .1u          C2       
+| 10u          C1       
+| 10u          C3       
+| 10u          C4       
+| 120          R3       
+| 12p          C6       
+| 12p          C7       
 | 1k           R10       
 | 1k           R11       
 | 1k5          R5        
@@ -19,12 +21,12 @@
 | 680          R8        
 | 680          R9        
 | AP1117       Q3        
-| ATTINY24-44-84/DIP-SO U2        
-| ATTINY25-45-85/DIP-SO U1        
+| ATTINY24-44-84/DIP-SO U2   (.75)       
+| ATTINY25-45-85/DIP-SO U1   (.75)
 | AVR-ISP-6    J1        
 | AVR-ISP-6    J2        
 | GRN          D1        
 | LED          D3        
 | RED          D2        
-| (12MHz) xtal X1        
+| (12MHz) xtal X1            ($1)
 
