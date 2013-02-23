@@ -1,0 +1,75 @@
+1) If you break anything, I'll send you more!  First shipment of whatever you
+break is free!
+
+2) There's a fair number of parts, it may take some patience.
+
+3) You will need a soldering iron and some solder, OR solder paste and a hot
+air gun or a toaster oven.
+
+4) If you have any trouble, feel free to contact me via facebook or my phone
+at 443-838-2702.
+
+I've packed the parts in individual bags to help prevent confusion.  You will
+find a few special parts, but these classes of parts:
+
+D# -> LED - you must orient these correctly.  The tiny green dot on the
+  surface of the LED will always be on the right side.
+
+R# -> These are resistors, white on one side, black with white numbering on
+  the other.
+
+C# -> These are capacitors, pale gray to beige, and unmarked other than dots
+  I've placed on some of them.
+
+I've placed a few extra of a few parts in everyone's bags, so even if you
+damage one, there's a chance there may be more of that exact part.
+
+Open and place only one bag at a time.
+
+For soldering, either: (Cliff notes! Look up youtube videos on this for more!)
+
+A) Place the part on the board, use a pair of tweezers or toothpick to hold
+the part down.  Use a soldering wet a soldering iron tip with some solder,
+and apply the bead of solder on one of the sides of the part.
+
+or
+
+B) Place the part on the board, place the soldering iron tip at the junction
+of the part and the board, and feed a small amount of solder in.
+
+
+You should receive the following packages:
+
+PACKAGE 1:
+R4, R6 ("330") - 33 Ohms
+C1, C3, C4 (Purple Dot) - 10u
+
+PACKAGE 2:
+R5 ("152" or "1501") - 1.5k
+R1, R2 ("105") - 1M
+
+PACKAGE 3:
+
+
+PACKAGE 4:
+D1 - Green LED
+C5 - (Beigs box, no markings) - 1u
+R7, R8, R9 ("6800" or "681") - 680 Ohms
+
+PACKAGE 5:
+D3 - Blue LED
+X1 - 11 MHz Crystal
+
+PACKAGE 6:
+U1 - ATTiny85 (Programmable Processor)
+U2 - ATTiny44 (Programmer)
+Q3 - Voltage Regulator
+
+PACKAGE 7:
+C8, C9 (Blue dot) - 22n
+R3 ("271" or "2700") - 270 ohms (or 120 ohms)
+J3 (May be in separate package) (USB)
+
+Total cost is about $6 in parts.  So, really! Don't worry if you burn
+something up?
+
