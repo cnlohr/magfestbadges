@@ -25,42 +25,16 @@ ISR( PCINT0_vect )
 ISR( TIMER1_COMPA_vect )
 {
 	tr = 0xf0;
-	TIMSK &= ~_BV( OCIE1A );
 }
-
-
-//#define smart_sleep_cpu() while( !tr );
-#define smart_sleep_cpu() sleep_cpu();
-
-#define TRF( PORTT, ID, PC, PCI, out ) \
-	DDR##PORTT |= _BV(ID); \
-	PORT##PORTT &= ~_BV(ID); \
-	\
-	tr = 0; \
-	TIMSK |= _BV( OCIE1A ); \
-	TCNT1 = 0; \
-	DDR##PORTT &= ~_BV(ID); \
-	PCMSK##PC = _BV(PCINT##PCI); \
-	smart_sleep_cpu(); \
-	out = tr; \
-	DDR##PORTT |= _BV(ID); \
-	PORT##PORTT &= ~_BV(ID); \
-	\
-	tr = 0; \
-	TIMSK |= _BV( OCIE1A ); \
-	TCNT1 = 0; \
-	DDR##PORTT &= ~_BV(ID); \
-	PCMSK##PC = _BV(PCINT##PCI); \
-	smart_sleep_cpu(); \
-	out += tr; \
-	DDR##PORTT |= _BV(ID); \
-	PORT##PORTT &= ~_BV(ID); \
 
 
 int main( void )
 {
-	unsigned short i, j;
+	unsigned short j;
 	unsigned char k;
+
+	unsigned short calibrate = 0;
+	unsigned char calibrated = 0;
 	cli();
 
 	setup_clock( );
@@ -69,29 +43,54 @@ int main( void )
 	sei();
 
 	//Setup timer
-	TCCR1 = _BV(CS10) | _BV(CS11);
-	OCR1A = 0xf0;
 
+	TCCR1 = _BV(CS11);
+	TIMSK |= _BV( OCIE1A );
+	OCR1A = 0xf0;
 	sleep_enable();
 
-	DDRB |= _BV(4); //Marker
+	GIMSK |= _BV(PCIE);
 
+	DDRB |= _BV(4); //Marker
 	PORTB &= ~_BV(3); //When engaged, lock port down.
+
+	sendstr( "MARK: " );
+
+	tr = 0x0000;
 
 	while(1)
 	{
 		DDRB |= _BV(3); //Lock port down
 		PORTB |= _BV(4); //Marker
-		_delay_ms(1);
+		sendhex2( j );
+		sendchr( '\n' );
+//		_delay_ms(1);
 
 		DDRB &= ~_BV(3); //Release Port
 		PORTB &= ~_BV(4); //Marker
-		_delay_ms(1);
+
+		TCNT1 = 0;
+		TIFR |= _BV(OCF1A);
+		PCMSK = _BV(3);
+		sleep_cpu();
+
+		if( calibrated < 10 )
+		{
+			calibrated++;
+			calibrate = tr;
+		}
+		else
+		{
+			j = tr - calibrate;
+
+			if( j > 0xf0 ) j = 0x00;
+		}
+
+//		_delay_ms(1);
+
 	}
-
-
-//	sendchr( 0 );
-//	sendstr( "MARK: " );
-
 	return 0;
+
+
+
 } 

@@ -3,7 +3,7 @@ Archive member included because of file (symbol)
 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
                               /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o (exit)
 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
-                              avr_print.o (__do_copy_data)
+                              test.o (__do_copy_data)
 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
                               test.o (__do_clear_bss)
 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
@@ -13,10 +13,7 @@ Allocating common symbols
 Common symbol       size              file
 
 touch               0x2               test.o
-baseline            0x4               test.o
 tr                  0x2               test.o
-current             0x4               test.o
-basezero            0x4               test.o
 __iob               0x6               /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
 
 Memory Configuration
@@ -129,7 +126,7 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a
 .rela.plt
  *(.rela.plt)
 
-.text           0x0000000000000000      0x23e
+.text           0x0000000000000000      0x1ce
  *(.vectors)
  .vectors       0x0000000000000000       0x1e /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
                 0x0000000000000000                __vectors
@@ -198,31 +195,30 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a
                 0x0000000000000054                __vector_8
                 0x0000000000000054                __vector_14
                 0x0000000000000054                __vector_10
- .text          0x0000000000000056      0x188 test.o
+ .text          0x0000000000000056      0x118 test.o
                 0x0000000000000056                __vector_2
                 0x0000000000000090                __vector_3
-                0x00000000000000be                GoRun
-                0x000000000000019a                main
- .text          0x00000000000001de       0x5c avr_print.o
-                0x00000000000001de                sendchr
-                0x00000000000001ee                sendhex1
-                0x00000000000001fc                sendhex2
-                0x0000000000000210                sendhex4
-                0x0000000000000220                setup_spi
- .text          0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
- .text          0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
- .text          0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
- .text          0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
-                0x000000000000023a                . = ALIGN (0x2)
+                0x00000000000000b8                main
+ .text          0x000000000000016e       0x5c avr_print.o
+                0x000000000000016e                sendchr
+                0x000000000000017e                sendhex1
+                0x000000000000018c                sendhex2
+                0x00000000000001a0                sendhex4
+                0x00000000000001b0                setup_spi
+ .text          0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
+ .text          0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
+ .text          0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
+ .text          0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
+                0x00000000000001ca                . = ALIGN (0x2)
  *(.text.*)
- .text.libgcc   0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
- .text.libgcc   0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
- .text.libgcc   0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
-                0x000000000000023a                . = ALIGN (0x2)
+ .text.libgcc   0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
+ .text.libgcc   0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
+ .text.libgcc   0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
+                0x00000000000001ca                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000000000000023a        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
-                0x000000000000023a                exit
-                0x000000000000023a                _exit
+ .fini9         0x00000000000001ca        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
+                0x00000000000001ca                exit
+                0x00000000000001ca                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -241,58 +237,56 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000000000000023a        0x4 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
+ .fini0         0x00000000000001ca        0x4 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
  *(.fini0)
-                0x000000000000023e                _etext = .
+                0x00000000000001ce                _etext = .
 
-.data           0x0000000000800060        0xe load address 0x000000000000023e
+.data           0x0000000000800060       0x16 load address 0x00000000000001ce
                 0x0000000000800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x0000000000800060        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
- .data          0x0000000000800060        0x0 test.o
- .data          0x0000000000800060        0xe avr_print.o
- .data          0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
- .data          0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
- .data          0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
- .data          0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
+ .data          0x0000000000800060        0x7 test.o
+ .data          0x0000000000800067        0xe avr_print.o
+ .data          0x0000000000800075        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
+ .data          0x0000000000800075        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
+ .data          0x0000000000800075        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
+ .data          0x0000000000800075        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.d*)
-                0x000000000080006e                . = ALIGN (0x2)
-                0x000000000080006e                _edata = .
-                0x000000000080006e                PROVIDE (__data_end, .)
+                0x0000000000800076                . = ALIGN (0x2)
+ *fill*         0x0000000000800075        0x1 00
+                0x0000000000800076                _edata = .
+                0x0000000000800076                PROVIDE (__data_end, .)
 
-.bss            0x000000000080006e       0x16
-                0x000000000080006e                PROVIDE (__bss_start, .)
+.bss            0x0000000000800076        0xa
+                0x0000000000800076                PROVIDE (__bss_start, .)
  *(.bss)
- .bss           0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
- .bss           0x000000000080006e        0x0 test.o
- .bss           0x000000000080006e        0x0 avr_print.o
- .bss           0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
- .bss           0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
- .bss           0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
- .bss           0x000000000080006e        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
+ .bss           0x0000000000800076        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
+ .bss           0x0000000000800076        0x0 test.o
+ .bss           0x0000000000800076        0x0 avr_print.o
+ .bss           0x0000000000800076        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_exit.o)
+ .bss           0x0000000000800076        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_copy_data.o)
+ .bss           0x0000000000800076        0x0 /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a(_clear_bss.o)
+ .bss           0x0000000000800076        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x000000000080006e       0x10 test.o
-                0x000000000080006e                touch
-                0x0000000000800070                baseline
-                0x0000000000800074                tr
-                0x0000000000800076                current
-                0x000000000080007a                basezero
- COMMON         0x000000000080007e        0x6 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
-                0x000000000080007e                __iob
-                0x0000000000800084                PROVIDE (__bss_end, .)
-                0x000000000000023e                __data_load_start = LOADADDR (.data)
-                0x000000000000024c                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0000000000800076        0x4 test.o
+                0x0000000000800076                touch
+                0x0000000000800078                tr
+ COMMON         0x000000000080007a        0x6 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
+                0x000000000080007a                __iob
+                0x0000000000800080                PROVIDE (__bss_end, .)
+                0x00000000000001ce                __data_load_start = LOADADDR (.data)
+                0x00000000000001e4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800084        0x0
-                0x0000000000800084                PROVIDE (__noinit_start, .)
+.noinit         0x0000000000800080        0x0
+                0x0000000000800080                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0000000000800084                PROVIDE (__noinit_end, .)
-                0x0000000000800084                _end = .
-                0x0000000000800084                PROVIDE (__heap_start, .)
+                0x0000000000800080                PROVIDE (__noinit_end, .)
+                0x0000000000800080                _end = .
+                0x0000000000800080                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)
@@ -310,19 +304,19 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x0000000000000000     0x1380
+.stab           0x0000000000000000     0x13ec
  *(.stab)
  .stab          0x0000000000000000      0x6cc /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
- .stab          0x00000000000006cc      0x5a0 test.o
-                                        0x5ac (size before relaxing)
- .stab          0x0000000000000c6c      0x450 avr_print.o
+ .stab          0x00000000000006cc      0x60c test.o
                                         0x618 (size before relaxing)
- .stab          0x00000000000010bc      0x2c4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
+ .stab          0x0000000000000cd8      0x450 avr_print.o
+                                        0x618 (size before relaxing)
+ .stab          0x0000000000001128      0x2c4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
                                         0x30c (size before relaxing)
 
-.stabstr        0x0000000000000000      0xf9a
+.stabstr        0x0000000000000000      0xf11
  *(.stabstr)
- .stabstr       0x0000000000000000      0xf9a /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
+ .stabstr       0x0000000000000000      0xf11 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
 
 .stab.excl
  *(.stab.excl)
