@@ -12,7 +12,6 @@ Archive member included because of file (symbol)
 Allocating common symbols
 Common symbol       size              file
 
-touch               0x2               test.o
 tr                  0x2               test.o
 __iob               0x6               /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
 
@@ -260,7 +259,7 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a
                 0x0000000000800076                _edata = .
                 0x0000000000800076                PROVIDE (__data_end, .)
 
-.bss            0x0000000000800076        0xa
+.bss            0x0000000000800076        0x8
                 0x0000000000800076                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x0000000000800076        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
@@ -272,21 +271,20 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a
  .bss           0x0000000000800076        0x0 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
  *(.bss*)
  *(COMMON)
- COMMON         0x0000000000800076        0x4 test.o
-                0x0000000000800076                touch
-                0x0000000000800078                tr
- COMMON         0x000000000080007a        0x6 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
-                0x000000000080007a                __iob
-                0x0000000000800080                PROVIDE (__bss_end, .)
+ COMMON         0x0000000000800076        0x2 test.o
+                0x0000000000800076                tr
+ COMMON         0x0000000000800078        0x6 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
+                0x0000000000800078                __iob
+                0x000000000080007e                PROVIDE (__bss_end, .)
                 0x00000000000001ce                __data_load_start = LOADADDR (.data)
                 0x00000000000001e4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0000000000800080        0x0
-                0x0000000000800080                PROVIDE (__noinit_start, .)
+.noinit         0x000000000080007e        0x0
+                0x000000000080007e                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0000000000800080                PROVIDE (__noinit_end, .)
-                0x0000000000800080                _end = .
-                0x0000000000800080                PROVIDE (__heap_start, .)
+                0x000000000080007e                PROVIDE (__noinit_end, .)
+                0x000000000080007e                _end = .
+                0x000000000080007e                PROVIDE (__heap_start, .)
 
 .eeprom         0x0000000000810000        0x0
  *(.eeprom*)
@@ -304,19 +302,19 @@ LOAD /usr/lib/gcc/avr/4.5.3/avr25/libgcc.a
 .signature
  *(.signature*)
 
-.stab           0x0000000000000000     0x13ec
+.stab           0x0000000000000000     0x13e0
  *(.stab)
  .stab          0x0000000000000000      0x6cc /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
- .stab          0x00000000000006cc      0x60c test.o
+ .stab          0x00000000000006cc      0x600 test.o
+                                        0x60c (size before relaxing)
+ .stab          0x0000000000000ccc      0x450 avr_print.o
                                         0x618 (size before relaxing)
- .stab          0x0000000000000cd8      0x450 avr_print.o
-                                        0x618 (size before relaxing)
- .stab          0x0000000000001128      0x2c4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
+ .stab          0x000000000000111c      0x2c4 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/libc.a(iob.o)
                                         0x30c (size before relaxing)
 
-.stabstr        0x0000000000000000      0xf11
+.stabstr        0x0000000000000000      0xf04
  *(.stabstr)
- .stabstr       0x0000000000000000      0xf11 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
+ .stabstr       0x0000000000000000      0xf04 /usr/lib/gcc/avr/4.5.3/../../../avr/lib/avr25/crttn85.o
 
 .stab.excl
  *(.stab.excl)
